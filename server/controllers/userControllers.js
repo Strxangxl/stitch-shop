@@ -1,4 +1,5 @@
 import User from "../models/userModel.js";
+import generateToken from "../config/generateToken.js";
 
 // @desc Register a new user
 // @route POST /api/register
@@ -24,6 +25,7 @@ const registerUser = async (req, res) => {
       name: user.name,
       email: user.email,
       isAdmin: user.isAdmin,
+      token: generateToken(user._id)
     });
   } else {
     res.status(400);

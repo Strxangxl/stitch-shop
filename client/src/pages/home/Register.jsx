@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   Box,
@@ -10,19 +11,33 @@ import {
 } from "@mui/material";
 import { shades } from "../../theme";
 import { LockOutlined } from "@mui/icons-material";
+import { useDispatch, useSelector } from "react-redux";
+import { register } from "../../actions/userActions"
 
 const Register = () => {
-  const navigate = useNavigate();
-  
-  const handleSubmit = (e) => {
-    e.preventDefault()
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-    const data = new FormData(e.currentTarget)
-    console.log({
-        email: data.get('email'),
-        password: data.get('password')
-    })
-  }
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const userRegister = useSelector((state) => state.userRegister);
+  const { userInfo } = userRegister;
+
+  const redirect = navigate.search ? navigate.search.split("=")[1] : "/";
+  useEffect(() => {
+    if (userInfo) {
+      navigate(redirect);
+    }
+  }, [navigate, userInfo, redirect]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // dispatch register
+    dispatch(register(name, email, password))
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -56,6 +71,7 @@ const Register = () => {
                 id="Name"
                 label="Name"
                 autoFocus
+                onChange={(e) => setName(e.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -66,6 +82,7 @@ const Register = () => {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                onChange={(e) => setEmail(e.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -77,6 +94,7 @@ const Register = () => {
                 type="password"
                 id="password"
                 autoComplete="new-password"
+                onChange={(e) => setPassword(e.target.value)}
               />
             </Grid>
           </Grid>
@@ -97,7 +115,8 @@ const Register = () => {
           </Button>
           <Grid container justifyContent="flex-end">
             <Grid item>
-              <Box color={shades.secondary[400]}
+              <Box
+                color={shades.secondary[400]}
                 sx={{ cursor: "pointer", textDecoration: "underline" }}
                 onClick={() => navigate("/login")}
               >

@@ -48,7 +48,7 @@ const Navbar = () => {
             onClick={() => navigate("/login")}
             sx={{ "&:hover": { cursor: "pointer" } }}
             fontWeight="bold"
-            color={shades.secondary[300]}
+            color={shades.primary[500]}
           >
             Login
           </Box>
@@ -56,7 +56,7 @@ const Navbar = () => {
             onClick={() => navigate("/register")}
             sx={{ "&:hover": { cursor: "pointer" } }}
             fontWeight="bold"
-            color={shades.secondary[300]}
+            color={shades.primary[500]}
           >
             Register
           </Box>
