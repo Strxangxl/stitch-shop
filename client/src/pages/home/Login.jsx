@@ -1,4 +1,7 @@
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../../actions/userActions"
 import {
   Box,
   Avatar,
@@ -9,19 +12,29 @@ import {
   Button,
 } from "@mui/material";
 import { shades } from "../../theme";
-import { LockOutlined } from "@mui/icons-material";
+import { LockOutlined } from "@mui/icons-material";;
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
+
+  const redirect = navigate.search ? navigate.search.split("=")[1] : "/";
+  useEffect(() => {
+    if (userInfo) {
+      navigate(redirect);
+    }
+  }, [navigate, userInfo, redirect]);
 
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    const data = new FormData(e.currentTarget)
-    console.log({
-        email: data.get('email'),
-        password: data.get('password')
-    })
+    dispatch(login(email, password))
   }
 
   return (
@@ -62,6 +75,7 @@ const Login = () => {
             name="email"
             autoComplete="email"
             autoFocus
+            onChange={(e) => setEmail(e.target.value)}
           />
           <TextField
             required
@@ -71,6 +85,7 @@ const Login = () => {
             type="password"
             id="password"
             autoComplete="current-password"
+            onChange={(e) => setPassword(e.target.value)}
           />
 
           <Button
