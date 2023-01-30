@@ -5,6 +5,7 @@ import Navbar from "./pages/global/Navbar";
 import Home from "./pages/home/Home";
 import Cart from "./pages/home/Cart";
 import Register from "./pages/home/Register";
+import Login from "./pages/home/Login";
 
 const App = () => {
   return (
@@ -15,7 +16,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/login" element={"login"} />
+          <Route path="/login" element={<Login />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>
       </BrowserRouter>

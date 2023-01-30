@@ -3,8 +3,6 @@ import { Box, IconButton, useMediaQuery } from "@mui/material";
 import {
   PersonOutline,
   ShoppingBagOutlined,
-  MenuOutlined,
-  SearchOutlined,
 } from "@mui/icons-material";
 import { shades } from "../../theme";
 
@@ -18,7 +16,7 @@ const Navbar = () => {
       alignItems="center"
       width="100%"
       height="50px"
-      backgroundColor="rgba(255, 255, 255, 0.95)"
+      backgroundColor="rgba(255, 255, 255, 0.9)"
       position="fixed"
       top="0"
       left="0"

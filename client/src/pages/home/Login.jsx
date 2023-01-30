@@ -11,9 +11,9 @@ import {
 import { shades } from "../../theme";
 import { LockOutlined } from "@mui/icons-material";
 
-const Register = () => {
+const Login = () => {
   const navigate = useNavigate();
-  
+
   const handleSubmit = (e) => {
     e.preventDefault()
 
@@ -45,41 +45,34 @@ const Register = () => {
         <Typography component="h1" variant="h5" sx={{ pt: 1 }}>
           Sign Up
         </Typography>
-        <Box component="form" onSubmit={handleSubmit} sx={{ mt: 3 }}>
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <TextField
-                autoComplete="given-name"
-                name="Name"
-                required
-                fullWidth
-                id="Name"
-                label="Name"
-                autoFocus
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="new-password"
-              />
-            </Grid>
-          </Grid>
+        <Box
+          component="form"
+          onSubmit={handleSubmit}
+          sx={{ mt: 3 }}
+          display="flex"
+          flexDirection="column"
+          width="100%"
+          gap="20px"
+        >
+          <TextField
+            required
+            fullWidth
+            id="email"
+            label="Email Address"
+            name="email"
+            autoComplete="email"
+            autoFocus
+          />
+          <TextField
+            required
+            fullWidth
+            name="password"
+            label="Password"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+          />
+
           <Button
             type="submit"
             fullWidth
@@ -93,15 +86,16 @@ const Register = () => {
               ":hover": { color: shades.secondary[300] },
             }}
           >
-            Sign Up
+            Sign In
           </Button>
           <Grid container justifyContent="flex-end">
             <Grid item>
-              <Box color={shades.secondary[400]}
+              <Box
+                color={shades.secondary[400]}
                 sx={{ cursor: "pointer", textDecoration: "underline" }}
-                onClick={() => navigate("/login")}
+                onClick={() => navigate("/register")}
               >
-                Already have an account? Sign In
+                Don`t have an account? Sign Up
               </Box>
             </Grid>
           </Grid>
@@ -111,4 +105,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;
