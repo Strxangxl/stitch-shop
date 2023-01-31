@@ -13,6 +13,7 @@ import { shades } from "../../theme";
 import { LockOutlined } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../actions/userActions"
+import Message from "../../components/Message";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -23,7 +24,7 @@ const Register = () => {
   const dispatch = useDispatch();
 
   const userRegister = useSelector((state) => state.userRegister);
-  const { userInfo } = userRegister;
+  const { error, loading, userInfo } = userRegister;
 
   const redirect = navigate.search ? navigate.search.split("=")[1] : "/";
   useEffect(() => {
@@ -96,6 +97,9 @@ const Register = () => {
                 autoComplete="new-password"
                 onChange={(e) => setPassword(e.target.value)}
               />
+            </Grid>
+            <Grid item xs={12}>
+            {error && <Message variant="error">{error}</Message>}
             </Grid>
           </Grid>
           <Button

@@ -1,9 +1,7 @@
-import { Alert } from "@mui/material"
+import { Alert } from "@mui/material";
 
 const Message = ({ variant, children }) => {
-  return (
-    <Alert severity={variant}>{children}</Alert>
-  )
-}
+  return <Alert severity={variant}>{children}</Alert>;
+};
 
-export default Message
+export default Message;

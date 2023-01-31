@@ -16,9 +16,9 @@ app.use(bodyParser.json());
 app.use(cors())
 
 app.get("/", (req, res) => {
-  res.send("API running!");
+  res.send("API running!")
 });
 
-app.use("/api/users", userRoutes);
+app.use("/api/users", userRoutes)
 
 app.listen(port, console.log(`Server running on port ${port}...`));

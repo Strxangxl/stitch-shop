@@ -41,7 +41,7 @@ const Login = () => {
 
   return (
     <Container component="main" maxWidth="xs">
-      {error && <Message variant="error">{error}</Message>}
+      {/* {loading && <Loading />} */}
       <Box
         sx={{
           marginTop: 12,
@@ -90,7 +90,7 @@ const Login = () => {
             autoComplete="current-password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <Message variant="error">An Error</Message>
+          {error && <Message variant="error">{error}</Message>}
           <Button
             type="submit"
             fullWidth
