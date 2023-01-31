@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../../actions/userActions"
+import { login } from "../../actions/userActions";
 import {
   Box,
   Avatar,
@@ -12,7 +12,8 @@ import {
   Button,
 } from "@mui/material";
 import { shades } from "../../theme";
-import { LockOutlined } from "@mui/icons-material";;
+import { LockOutlined } from "@mui/icons-material";
+import Message from "../../components/Message";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -22,7 +23,7 @@ const Login = () => {
   const dispatch = useDispatch();
 
   const userLogin = useSelector((state) => state.userLogin);
-  const { userInfo } = userLogin;
+  const { loading, error, userInfo } = userLogin;
 
   const redirect = navigate.search ? navigate.search.split("=")[1] : "/";
   useEffect(() => {
@@ -32,13 +33,15 @@ const Login = () => {
   }, [navigate, userInfo, redirect]);
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    dispatch(login(email, password))
-  }
+    dispatch(login(email, password));
+  };
+  console.log(error)
 
   return (
     <Container component="main" maxWidth="xs">
+      {error && <Message variant="error">{error}</Message>}
       <Box
         sx={{
           marginTop: 12,
@@ -87,7 +90,7 @@ const Login = () => {
             autoComplete="current-password"
             onChange={(e) => setPassword(e.target.value)}
           />
-
+          <Message variant="error">An Error</Message>
           <Button
             type="submit"
             fullWidth

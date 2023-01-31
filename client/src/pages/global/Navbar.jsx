@@ -1,14 +1,38 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Box, IconButton, useMediaQuery } from "@mui/material";
 import {
-  PersonOutline,
-  ShoppingBagOutlined,
-} from "@mui/icons-material";
+  Box,
+  Button,
+  IconButton,
+  useMediaQuery,
+  Menu,
+  MenuItem,
+} from "@mui/material";
+import { PersonOutline, ShoppingBagOutlined } from "@mui/icons-material";
 import { shades } from "../../theme";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../actions/userActions";
 
 const Navbar = () => {
+  const [anchorEl, setAnchorEl] = useState(null);
   const navigate = useNavigate();
   const isMobile = useMediaQuery("(min-width:600px)");
+
+  const dispatch = useDispatch();
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const logoutHandler = () => {
+    dispatch(logout());
+  };
 
   return (
     <Box
@@ -44,27 +68,54 @@ const Navbar = () => {
           zIndex="2"
           alignItems="center"
         >
-          <Box
-            onClick={() => navigate("/login")}
-            sx={{ "&:hover": { cursor: "pointer" } }}
-            fontWeight="bold"
-            color={shades.primary[500]}
-          >
-            Login
-          </Box>
-          <Box
-            onClick={() => navigate("/register")}
-            sx={{ "&:hover": { cursor: "pointer" } }}
-            fontWeight="bold"
-            color={shades.primary[500]}
-          >
-            Register
-          </Box>
+          {/* here */}
+          {userInfo ? (
+            <>
+              <Button 
+              onClick={handleClick}
+              sx={{
+                color: shades.secondary[600],
+                fontSize: ".8rem",
+                textTransform: "capitalize",
+                fontWeight: 600
+              }}
+              >{userInfo.name}</Button>
+              <Menu
+                anchorEl={anchorEl}
+                open={Boolean(anchorEl)}
+                close={handleClose}
+              >
+                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem onClick={logoutHandler}>Logout</MenuItem>
+              </Menu>
+            </>
+          ) : (
+            <>
+              <Box
+                onClick={() => navigate("/login")}
+                sx={{ "&:hover": { cursor: "pointer" } }}
+                fontWeight="bold"
+                color={shades.primary[500]}
+              >
+                Login
+              </Box>
+              <Box
+                onClick={() => navigate("/register")}
+                sx={{ "&:hover": { cursor: "pointer" } }}
+                fontWeight="bold"
+                color={shades.primary[500]}
+              >
+                Register
+              </Box>
+            </>
+          )}
+
           <IconButton
             sx={{
               color: "black",
               display: isMobile ? "block" : "none",
             }}
+            onClick={logoutHandler}
           >
             <PersonOutline />
           </IconButton>
