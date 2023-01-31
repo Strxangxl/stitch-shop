@@ -120,3 +120,5 @@ const products = [
       "https://images.unsplash.com/photo-1618375531912-867984bdfd87?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDd8fG1vZGVsJTIwcGhvdG9zaG9vdHxlbnwwfDF8MHx8&auto=format&fit=crop&w=500&q=60",
   },
 ];
+
+export default products
