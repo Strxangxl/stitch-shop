@@ -1,23 +1,18 @@
 import { Box, Grid, Typography } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Item from "../../components/Item";
-import axios from "axios";
+import { listProducts } from "../../actions/productActions";
 
 const ShoppingList = () => {
-  const [products, setProducts] = useState([]);
+  const dispatch = useDispatch();
 
-  const axiosUrl = axios.create({
-    baseURL: "http://localhost:5000",
-  });
+  const productList = useSelector((state) => state.productList);
+  const { loading, error, products } = productList;
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      const { data } = await axiosUrl.get("/api/products");
-      setProducts(data);
-    };
-
-    fetchProducts();
-  }, [axiosUrl]);
+    dispatch(listProducts());
+  }, [dispatch]);
 
   return (
     <Box width="80%" margin="60px auto">
@@ -28,7 +23,7 @@ const ShoppingList = () => {
         Our Latest Collections
       </Typography>
       <Grid
-      pt="40px"
+        pt="40px"
         container
         spacing={{ xs: 3, md: 5 }}
         columns={{ xs: 4, sm: 12, md: 18 }}

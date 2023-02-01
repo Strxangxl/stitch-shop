@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
 import {
   Box,
   Button,
@@ -12,28 +12,27 @@ import { shades } from "../../theme";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
+import { listProductsDetails } from "../../actions/productActions";
 
 const ProductPage = () => {
-  const [product, setProduct] = useState({});
   const [count, setCount] = useState(1);
+
+  const dispatch = useDispatch();
+  const productDetails = useSelector((state) => state.productDetails);
+  const { loading, error, product } = productDetails;
 
   const isMobile = useMediaQuery("(min-width: 600px)");
 
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const axiosUrl = axios.create({
-    baseURL: "http://localhost:5000",
-  });
-
   useEffect(() => {
-    const fetchProduct = async () => {
-      const { data } = await axiosUrl.get(`/api/products/${id}`);
-      setProduct(data);
-    };
+    dispatch(listProductsDetails(id));
+  }, [dispatch, id]);
 
-    fetchProduct();
-  }, [axiosUrl, id]);
+  const addToCart = () => {
+    navigate(`/cart/${id}?qty=${count}`)
+  };
 
   return (
     <Box width="80%" margin="60px auto">
@@ -78,24 +77,40 @@ const ProductPage = () => {
             </Typography>
 
             <Box display="flex" alignItems="center" min-height="50px">
-              <Box
-                display="flex"
-                alignItems="center"
-                border={`1.5px solid ${shades.neutral[300]}`}
-                mr="20px"
-                p="2px 5px"
+              <Typography
+                variant="subtitle 2"
+                pr="20px"
+                color={shades.primary[300]}
               >
-                <IconButton onClick={() => setCount(Math.max(count - 1, 1))}>
-                  <RemoveIcon />
-                </IconButton>
-                <Typography sx={{ p: "0 5px" }}>{count}</Typography>
-                <IconButton onClick={() => setCount(count + 1)}>
-                  <AddIcon />
-                </IconButton>
-              </Box>
+                {product.countInStock > 0 ? "In Stock" : "Out Of Stock"}
+              </Typography>
+
+              {product.countInStock > 0 ? (
+                <Box
+                  display="flex"
+                  alignItems="center"
+                  border={`1.5px solid ${shades.neutral[300]}`}
+                  mr="20px"
+                  p="2px 5px"
+                  value={count}
+                  onChange={(e) => setCount(e.target.value)}
+                >
+                  <IconButton onClick={() => setCount(Math.max(count - 1, 1))}>
+                    <RemoveIcon />
+                  </IconButton>
+                  <Typography sx={{ p: "0 5px" }}>{count}</Typography>
+                  <IconButton onClick={() => setCount(count + 1)}>
+                    <AddIcon />
+                  </IconButton>
+                </Box>
+              ) : (
+                ""
+              )}
             </Box>
 
             <Button
+              onClick={addToCart}
+              disabled={product.countInStock === 0}
               sx={{
                 mt: "30px",
                 backgroundColor: shades.secondary[300],
