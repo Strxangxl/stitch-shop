@@ -1,13 +1,10 @@
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import Item from "../../components/Item";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const ShoppingList = () => {
   const [products, setProducts] = useState([]);
-
-  const navigate = useNavigate();
 
   const axiosUrl = axios.create({
     baseURL: "http://localhost:5000",
