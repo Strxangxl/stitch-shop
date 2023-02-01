@@ -18,7 +18,7 @@ const ShoppingList = () => {
     <Box width="80%" margin="60px auto">
       <Typography
         variant="h2"
-        sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+        sx={{ display: "flex", alignItems: "center" }}
       >
         Our Latest Collections
       </Typography>
