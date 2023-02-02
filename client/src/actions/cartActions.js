@@ -2,7 +2,7 @@ import axios from "axios";
 import { CART_ADD_ITEM, CART_REMOVE_ITEM } from "../constants/cartConstants";
 
 const axiosUrl = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "https://stitch-shop-server.onrender.com/",
 });
 
 export const addToCart = (id, qty) => async (dispatch, getState) => {

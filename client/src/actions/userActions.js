@@ -10,7 +10,7 @@ import {
 } from "../constants/userConstants";
 
 const axiosUrl = axios.create({
-  baseURL: "http://localhost:5000"
+  baseURL: "https://stitch-shop-server.onrender.com/"
 })
 
 export const register = (name, email, password) => async (dispatch) => {

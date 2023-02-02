@@ -9,7 +9,7 @@ import {
 } from "../constants/productConstants";
 
 const axiosUrl = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "https://stitch-shop-server.onrender.com/",
 });
 
 export const listProducts = () => async (dispatch) => {
