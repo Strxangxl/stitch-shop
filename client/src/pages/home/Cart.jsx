@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { Box, Typography, Button, IconButton, Divider } from "@mui/material";
+import { Box, Typography, IconButton, Divider } from "@mui/material";
 import { shades } from "../../theme";
-import { addToCart } from "../../actions/cartActions";
+import { addToCart, removeFromCart } from "../../actions/cartActions";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import CloseIcon from "@mui/icons-material/Close";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 const Cart = () => {
   const [count, setCount] = useState(1);
@@ -27,6 +28,10 @@ const Cart = () => {
       dispatch(addToCart(productId, qty));
     }
   }, [dispatch, productId, qty]);
+
+  const removeFromCartHandler = (id) => {
+    dispatch(removeFromCart(id));
+  };
 
   return (
     <Box width="80%" margin="100px auto">
@@ -76,7 +81,10 @@ const Cart = () => {
                       </IconButton>
                     </Box>
                     <Typography variant="h3">$ {item.price}</Typography>
-                    <IconButton sx={{ color: shades.primary[500] }}>
+                    <IconButton
+                      sx={{ color: shades.primary[500] }}
+                      onClick={() => removeFromCartHandler(item.product)}
+                    >
                       <CloseIcon />
                     </IconButton>
                   </Box>
@@ -86,17 +94,39 @@ const Cart = () => {
                 </Box>
               </Box>
             ))}
-            <Box display="flex" justifyContent="space-between">
+            <Box display="flex" justifyContent="space-between" p="5px">
               <Typography variant="h3">
-                Total ({cartItems.reduce((acc, item) => acc + item.qty, 0)})
+                Total Items (
+                {cartItems.reduce((acc, item) => acc + item.qty, 0)})
               </Typography>
               <Typography variant="h3" fontWeight="bold">
-                $ {cartItems.reduce((acc, item) => acc + item.qty * item.price, 0).toFixed(2)}
+                ${" "}
+                {cartItems
+                  .reduce((acc, item) => acc + item.qty * item.price, 0)
+                  .toFixed(2)}
               </Typography>
             </Box>
+            <Divider sx={{ p: "5px", m: "5px" }} />
           </Box>
         )}
       </Box>
+      {cartItems.length === 0 ? (
+        ""
+      ) : (
+        <Box
+          onClick={() => navigate("/login?redirect=checkout")}
+          sx={{
+            pt: "20px",
+            display: "flex",
+            alignItems: "center",
+            gap: "5px",
+            cursor: "pointer",
+          }}
+        >
+          Proceed to Checkout
+          <ArrowForwardIcon />
+        </Box>
+      )}
     </Box>
   );
 };
