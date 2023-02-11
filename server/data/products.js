@@ -8,7 +8,7 @@ const products = [
     numReviews: 13,
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     image:
-      "https://images.unsplash.com/photo-1611601679655-7c8bc197f0c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80",
+      "./assets/1a.png",
   },
   {
     name: "Half-Black Leather Jacket",
@@ -19,7 +19,7 @@ const products = [
     numReviews: 4,
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     image:
-      "https://images.unsplash.com/photo-1613425125913-88ae911b2414?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80",
+      "./assets/2a.png",
   },
   {
     name: "Full Shiny Trunk",
@@ -30,7 +30,7 @@ const products = [
     numReviews: 2,
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     image:
-      "https://images.unsplash.com/photo-1618374645957-04e5cc73ec21?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bW9kZWwlMjBwaG90b3Nob290fGVufDB8MXwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+    "./assets/3a.png",
   },
   {
     name: "Beautiful Yellow Dress",
@@ -41,7 +41,7 @@ const products = [
     numReviews: 9,
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     image:
-      "https://images.unsplash.com/photo-1623930354140-03c5ae186bf2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8bW9kZWwlMjBwaG90b3Nob290fGVufDB8MXwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+    "./assets/4a.png",
   },
   {
     name: "Black Frock",
@@ -52,7 +52,7 @@ const products = [
     numReviews: 13,
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     image:
-      "https://images.unsplash.com/photo-1614942925739-a21796eba758?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fG1vZGVsJTIwcGhvdG9zaG9vdHxlbnwwfDF8MHx8&auto=format&fit=crop&w=500&q=60",
+    "./assets/5a.png",
   },
   {
     name: "Summer Half Wear",
@@ -63,7 +63,7 @@ const products = [
     numReviews: 23,
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     image:
-      "https://images.unsplash.com/photo-1625794913247-b8138fd9edb3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fG1vZGVsJTIwcGhvdG9zaG9vdHxlbnwwfDF8MHx8&auto=format&fit=crop&w=500&q=60",
+    "./assets/6a.png",
   },
   {
     name: "Pista Green Dress",
@@ -74,7 +74,7 @@ const products = [
     numReviews: 13,
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     image:
-      "https://images.unsplash.com/photo-1627298855952-b75008bae685?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjZ8fG1vZGVsJTIwcGhvdG9zaG9vdHxlbnwwfDF8MHx8&auto=format&fit=crop&w=500&q=60",
+    "./assets/7a.png",
   },
   {
     name: "Summer Outfits",
@@ -85,7 +85,7 @@ const products = [
     numReviews: 6,
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     image:
-      "https://images.unsplash.com/photo-1618375141059-9483d77295a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzl8fG1vZGVsJTIwcGhvdG9zaG9vdHxlbnwwfDF8MHx8&auto=format&fit=crop&w=500&q=60",
+    "./assets/8a.png",
   },
   {
     name: "Half body black tshirt",
@@ -96,7 +96,7 @@ const products = [
     numReviews: 3,
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     image:
-      "https://images.unsplash.com/photo-1618375066375-c09d6d1c7925?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDF8fG1vZGVsJTIwcGhvdG9zaG9vdHxlbnwwfDF8MHx8&auto=format&fit=crop&w=500&q=60",
+      "./assets/9a.png",
   },
   {
     name: "Half body white tshirt",
@@ -107,7 +107,7 @@ const products = [
     numReviews: 5,
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     image:
-      "https://images.unsplash.com/photo-1618375531912-867984bdfd87?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDd8fG1vZGVsJTIwcGhvdG9zaG9vdHxlbnwwfDF8MHx8&auto=format&fit=crop&w=500&q=60",
+    "./assets/10a.png",
   },
 ];
 
