@@ -29,8 +29,6 @@ GET       /api/products          Fetch all products
 POST      /api/users             Register a new user
 GET       /api/product/:id       Fetch a specific product
 POST      /api/users/login       Login a user
-PATCH     /api/todos/:id         Update the todo content
-DELETE    /api/todos/:id         Delete todo
 ```
 
 ## Setup
