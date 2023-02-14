@@ -1,12 +1,8 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Navbar from "./pages/global/Navbar";
-import Home from "./pages/home/Home";
-import Cart from "./pages/home/Cart";
-import Register from "./pages/home/Register";
-import Login from "./pages/home/Login";
-import ProductPage from "./pages/home/ProductPage";
+import { Home, ProductPage } from "./pages/home";
+import { Navbar ,Cart, Login, Register } from "./pages/global";
 
 const App = () => {
   return (

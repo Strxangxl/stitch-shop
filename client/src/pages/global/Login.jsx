@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../../actions/userActions";
 import {
   Box,
   Avatar,
@@ -11,20 +13,16 @@ import {
 } from "@mui/material";
 import { shades } from "../../theme";
 import { LockOutlined } from "@mui/icons-material";
-import { useDispatch, useSelector } from "react-redux";
-import { register } from "../../actions/userActions"
-import Message from "../../components/Message";
 
-const Register = () => {
-  const [name, setName] = useState("");
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const userRegister = useSelector((state) => state.userRegister);
-  const { error, loading, userInfo } = userRegister;
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
 
   const redirect = navigate.search ? navigate.search.split("=")[1] : "/";
   useEffect(() => {
@@ -36,8 +34,7 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // dispatch register
-    dispatch(register(name, email, password))
+    dispatch(login(email, password));
   };
 
   return (
@@ -61,47 +58,35 @@ const Register = () => {
         <Typography component="h1" variant="h5" sx={{ pt: 1 }}>
           Sign Up
         </Typography>
-        <Box component="form" onSubmit={handleSubmit} sx={{ mt: 3 }}>
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <TextField
-                autoComplete="given-name"
-                name="Name"
-                required
-                fullWidth
-                id="Name"
-                label="Name"
-                autoFocus
-                onChange={(e) => setName(e.target.value)}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="new-password"
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </Grid>
-            <Grid item xs={12}>
-            {error && <Message variant="error">{error}</Message>}
-            </Grid>
-          </Grid>
+        <Box
+          component="form"
+          onSubmit={handleSubmit}
+          sx={{ mt: 3 }}
+          display="flex"
+          flexDirection="column"
+          width="100%"
+          gap="20px"
+        >
+          <TextField
+            required
+            fullWidth
+            id="email"
+            label="Email Address"
+            name="email"
+            autoComplete="email"
+            autoFocus
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <TextField
+            required
+            fullWidth
+            name="password"
+            label="Password"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
           <Button
             type="submit"
             fullWidth
@@ -115,16 +100,16 @@ const Register = () => {
               ":hover": { color: shades.secondary[300] },
             }}
           >
-            Sign Up
+            Sign In
           </Button>
           <Grid container justifyContent="flex-end">
             <Grid item>
               <Box
                 color={shades.secondary[400]}
                 sx={{ cursor: "pointer", textDecoration: "underline" }}
-                onClick={() => navigate("/login")}
+                onClick={() => navigate("/register")}
               >
-                Already have an account? Sign In
+                Don`t have an account? Sign Up
               </Box>
             </Grid>
           </Grid>
@@ -134,4 +119,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;

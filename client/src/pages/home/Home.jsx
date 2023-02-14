@@ -1,4 +1,4 @@
-import MainCarousel from "../../components/MainCarousel"
+import { MainCarousel } from "../../components"
 import ShoppingList from "./ShoppingList"
 
 const Home = () => {

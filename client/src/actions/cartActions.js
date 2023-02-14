@@ -1,15 +1,11 @@
-import axios from "axios";
-import { CART_ADD_ITEM, CART_REMOVE_ITEM } from "../constants/cartConstants";
-
-const axiosUrl = axios.create({
-  baseURL: "https://stitch-shop-server.onrender.com/",
-});
+import * as constants from "../constants/cartConstants";
+import axiosUrl from "../config/backendRoute";
 
 export const addToCart = (id, qty) => async (dispatch, getState) => {
   const { data } = await axiosUrl.get(`/api/products/${id}`);
 
   dispatch({
-    type: CART_ADD_ITEM,
+    type: constants.CART_ADD_ITEM,
     payload: {
       product: data._id,
       name: data.name,
@@ -24,7 +20,7 @@ export const addToCart = (id, qty) => async (dispatch, getState) => {
 
 export const removeFromCart = (id) => async (dispatch, getState) => {
   dispatch({
-    type: CART_REMOVE_ITEM,
+    type: constants.CART_REMOVE_ITEM,
     payload: id,
   });
 

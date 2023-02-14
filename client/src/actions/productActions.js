@@ -1,31 +1,20 @@
-import axios from "axios";
-import {
-  PRODUCT_LIST_REQUEST,
-  PRODUCT_LIST_SUCCESS,
-  PRODUCT_LIST_FAIL,
-  PRODUCT_DETAILS_REQUEST,
-  PRODUCT_DETAILS_SUCCESS,
-  PRODUCT_DETAILS_FAIL,
-} from "../constants/productConstants";
-
-const axiosUrl = axios.create({
-  baseURL: "https://stitch-shop-server.onrender.com/",
-});
+import axiosUrl from "../config/backendRoute";
+import * as constants from "../constants/productConstants";
 
 export const listProducts = () => async (dispatch) => {
   try {
     dispatch({
-      type: PRODUCT_LIST_REQUEST,
+      type: constants.PRODUCT_DETAILS_REQUEST,
     });
 
     const { data } = await axiosUrl.get("/api/products");
     dispatch({
-      type: PRODUCT_LIST_SUCCESS,
+      type: constants.PRODUCT_LIST_SUCCESS,
       payload: data,
     });
   } catch (error) {
     dispatch({
-      type: PRODUCT_LIST_FAIL,
+      type: constants.PRODUCT_LIST_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
@@ -37,17 +26,17 @@ export const listProducts = () => async (dispatch) => {
 export const listProductsDetails = (id) => async (dispatch) => {
   try {
     dispatch({
-      type: PRODUCT_DETAILS_REQUEST,
+      type: constants.PRODUCT_DETAILS_REQUEST,
     });
 
     const { data } = await axiosUrl.get(`/api/products/${id}`);
     dispatch({
-      type: PRODUCT_DETAILS_SUCCESS,
+      type: constants.PRODUCT_DETAILS_SUCCESS,
       payload: data,
     });
   } catch (error) {
     dispatch({
-      type: PRODUCT_DETAILS_FAIL,
+      type: constants.PRODUCT_DETAILS_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message

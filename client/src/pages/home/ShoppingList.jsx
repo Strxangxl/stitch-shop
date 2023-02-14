@@ -1,14 +1,14 @@
 import { Box, Grid, Typography } from "@mui/material";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Item from "../../components/Item";
+import { Item } from "../../components";
 import { listProducts } from "../../actions/productActions";
 
 const ShoppingList = () => {
   const dispatch = useDispatch();
 
   const productList = useSelector((state) => state.productList);
-  const { loading, error, products } = productList;
+  const { products } = productList;
 
   useEffect(() => {
     dispatch(listProducts());
