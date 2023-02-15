@@ -28,9 +28,11 @@ const Navbar = () => {
 
   const handleClose = () => {
     setAnchorEl(null);
+    navigate('/profile')
   };
 
   const logoutHandler = () => {
+    setAnchorEl(null);
     dispatch(logout());
   };
 
