@@ -29,6 +29,7 @@ GET       /api/products          Fetch all products
 POST      /api/users             Register a new user
 GET       /api/product/:id       Fetch a specific product
 POST      /api/users/login       Login a user
+PUT       /api/users/profile     Update the users profile
 ```
 
 ## Setup
