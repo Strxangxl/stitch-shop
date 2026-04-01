@@ -1,0 +1,112 @@
+[
+  {
+    "_id": "1",
+    "name": "Black Leather Jacket",
+    "category": "Jackets",
+    "price": 89.99,
+    "countInStock": 10,
+    "rating": 4.7,
+    "numReviews": 13,
+    "description": "Premium black leather jacket with a tailored fit.",
+    "image": "https://images.unsplash.com/photo-1611601679655-7c8bc197f0c6?auto=format&fit=crop&w=464&q=80"
+  },
+  {
+    "_id": "2",
+    "name": "Half-Black Leather Jacket",
+    "category": "Jackets",
+    "price": 20.5,
+    "countInStock": 7,
+    "rating": 3.2,
+    "numReviews": 4,
+    "description": "Versatile half-black leather jacket for casual outings.",
+    "image": "https://images.unsplash.com/photo-1613425125913-88ae911b2414?auto=format&fit=crop&w=464&q=80"
+  },
+  {
+    "_id": "3",
+    "name": "Full Shiny Trunk",
+    "category": "Lowers",
+    "price": 32.5,
+    "countInStock": 5,
+    "rating": 3.0,
+    "numReviews": 2,
+    "description": "High-gloss finish trunk for a standout look.",
+    "image": "https://images.unsplash.com/photo-1618374645957-04e5cc73ec21?auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "_id": "4",
+    "name": "Beautiful Yellow Dress",
+    "category": "Outfit",
+    "price": 90.0,
+    "countInStock": 6,
+    "rating": 4.3,
+    "numReviews": 9,
+    "description": "Elegant yellow dress, perfect for summer events.",
+    "image": "https://images.unsplash.com/photo-1623930354140-03c5ae186bf2?auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "_id": "5",
+    "name": "Black Frock",
+    "category": "Outfit",
+    "price": 95.0,
+    "countInStock": 20,
+    "rating": 4.5,
+    "numReviews": 13,
+    "description": "Classic black frock with a modern silhouette.",
+    "image": "https://images.unsplash.com/photo-1614942925739-a21796eba758?auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "_id": "6",
+    "name": "Summer Half Wear",
+    "category": "Fashion",
+    "price": 40.0,
+    "countInStock": 11,
+    "rating": 4.4,
+    "numReviews": 23,
+    "description": "Lightweight summer wear for maximum comfort.",
+    "image": "https://images.unsplash.com/photo-1625794913247-b8138fd9edb3?auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "_id": "7",
+    "name": "Pista Green Dress",
+    "category": "Fashion",
+    "price": 100.0,
+    "countInStock": 20,
+    "rating": 4.8,
+    "numReviews": 13,
+    "description": "Sophisticated pista green dress for formal occasions.",
+    "image": "https://images.unsplash.com/photo-1627298855952-b75008bae685?auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "_id": "8",
+    "name": "Summer Outfits",
+    "category": "Outfit",
+    "price": 30.0,
+    "countInStock": 8,
+    "rating": 4.1,
+    "numReviews": 6,
+    "description": "Casual summer outfit for everyday style.",
+    "image": "https://images.unsplash.com/photo-1618375141059-9483d77295a2?auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "_id": "9",
+    "name": "Half body black tshirt",
+    "category": "Upper",
+    "price": 49.99,
+    "countInStock": 3,
+    "rating": 4.4,
+    "numReviews": 3,
+    "description": "Minimalist black t-shirt for a sleek look.",
+    "image": "https://images.unsplash.com/photo-1618375066375-c09d6d1c7925?auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "_id": "10",
+    "name": "Half body white tshirt",
+    "category": "Upper",
+    "price": 60.0,
+    "countInStock": 1,
+    "rating": 4.2,
+    "numReviews": 5,
+    "description": "Clean white t-shirt, a staple for any wardrobe.",
+    "image": "https://images.unsplash.com/photo-1618375531912-867984bdfd87?auto=format&fit=crop&w=500&q=60"
+  }
+]

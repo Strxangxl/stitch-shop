@@ -1,0 +1,16 @@
+[
+  {
+    "_id": "1",
+    "name": "Ratan User",
+    "email": "ratan@gmail.com",
+    "isAdmin": true,
+    "token": "mock_jwt_token_for_interview_demo"
+  },
+  {
+    "_id": "2",
+    "name": "Gagan User",
+    "email": "gagan@gmail.com",
+    "isAdmin": false,
+    "token": "mock_jwt_token_for_interview_demo"
+  }
+]
